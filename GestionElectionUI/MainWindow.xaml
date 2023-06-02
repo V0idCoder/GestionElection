@@ -7,14 +7,26 @@
         mc:Ignorable="d"
         Title="GestionElection" Height="450" Width="800">
     <Grid>
-        <TabControl TabStripPlacement="Top" Margin="0 30,0,0">
-            <TabItem Header="General">
-            </TabItem>
-            <TabItem Header="Listes et candidats"></TabItem>
-            <TabItem Header="Dépouillement"></TabItem>
-            <TabItem Header="Bulletins modifiés"></TabItem>
-            <TabItem Header="Totalisation des sufffrages"></TabItem>
-            <TabItem Header="Répartition des sièges"></TabItem>
-        </TabControl>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        
+       
+        <Ribbon>
+            <RibbonTab Header="General"/>
+            <RibbonTab Header="Listes/candidats"/>
+            <RibbonTab Header="Dépuillement"/>
+        </Ribbon>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Left side</TextBlock>
+        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+        <TextBlock Grid.Column="2" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Right side</TextBlock>
+        </Grid>
     </Grid>
 </Window>
