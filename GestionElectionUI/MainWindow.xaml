@@ -5,64 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GestionElectionUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="GestionElection" Height="450" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Ribbon x:Name="RibbonWin"  SelectedIndex="0">
-            <!-- Help Pane, located at the right-hand side -->
-            <Ribbon.HelpPaneContent>
-                <RibbonButton />
-            </Ribbon.HelpPaneContent>
-            <!-- Quick Access Toolbar - located at the upper-left corner -->
-          
-            <!-- Application Menu, located at the left-hand side (down arrow) -->
-            <Ribbon.ApplicationMenu>
-                <RibbonApplicationMenu KeyTip="F">
-                    <RibbonApplicationMenuItem Header="Options" />
-                    <RibbonApplicationMenuItem Header="Exit"/>
-                </RibbonApplicationMenu>
-            </Ribbon.ApplicationMenu>
-            <!-- Ribbon Tab #1: Home -->
-            <RibbonTab Header="Général" KeyTip="H" >
-                <!-- Home  group-->
-                <RibbonGroup x:Name="ClipboardGroup" Header="Home">
-                    <RibbonMenuButton Label="Paste" KeyTip="V">
-                        <RibbonMenuItem Header="Keep Text Only" KeyTip="T"/>
-                        <RibbonMenuItem Header="Paste Special..." KeyTip="S"/>
-                    </RibbonMenuButton>
-                    <RibbonButton Label="Cut" KeyTip="X" />
-                    <RibbonButton Label="Copy" KeyTip="C" />
-                    <RibbonButton Label="Format Painter" KeyTip="FP" />
-                </RibbonGroup>
-                <!-- Employee And Payroll group-->
-                <RibbonGroup x:Name="Employee" Header="Employee And Payroll">
-                    <RibbonMenuButton Label="Employee" KeyTip="V">
-                        <RibbonMenuItem Header="Keep Text Only" KeyTip="T"/>
-                        <RibbonMenuItem Header="Paste Special..." KeyTip="S"/>
-                    </RibbonMenuButton>
-                    <RibbonButton  Label="Save" KeyTip="X" />
-                    <RibbonButton  Label="Add" KeyTip="C" />
-                </RibbonGroup>
-            </RibbonTab>
-            <!-- Ribbon Tab #2: -->
-            <RibbonTab Header="Listes et candidats" KeyTip="I">
-            </RibbonTab>
-            <!-- Ribbon Tab #3: -->
-            <RibbonTab Header="Dépouillement" KeyTip="L">
-                
-            </RibbonTab>
-            <RibbonTab Header="Bulletins modifiés" KeyTip="L">
-
-            </RibbonTab>
-            <RibbonTab Header="Totalisation des suffrafes" KeyTip="L">
-
-            </RibbonTab>
-            <RibbonTab Header="Répartition des sièges" KeyTip="L">
-
-            </RibbonTab>
-        </Ribbon>
+        <TabControl TabStripPlacement="Top" Margin="0 30,0,0">
+            <TabItem Header="General">
+            </TabItem>
+            <TabItem Header="Listes et candidats"></TabItem>
+            <TabItem Header="Dépouillement"></TabItem>
+            <TabItem Header="Bulletins modifiés"></TabItem>
+            <TabItem Header="Totalisation des sufffrages"></TabItem>
+            <TabItem Header="Répartition des sièges"></TabItem>
+        </TabControl>
     </Grid>
 </Window>
