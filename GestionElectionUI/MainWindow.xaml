@@ -24,8 +24,24 @@
                 <ColumnDefinition Width="5" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <TextBlock FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Left side</TextBlock>
-        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+            
+            <!--TreeView-->
+            <Grid Margin="10">
+                <TreeView>
+                    <TreeViewItem Header="Election" >
+                        <TreeViewItem Header="Commune" />
+                        <TreeViewItem Header="Objet de l'élection"/>
+                        <TreeViewItem Header="Nb de sièges" />
+                        <TreeViewItem Header="Système" />
+                        <TreeViewItem Header="Cumul" />
+
+                        <TreeViewItem Header="Level 2.3" />
+                    </TreeViewItem>
+                </TreeView>
+            </Grid>
+            
+            
+            <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
         <TextBlock Grid.Column="2" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Right side</TextBlock>
         </Grid>
     </Grid>
