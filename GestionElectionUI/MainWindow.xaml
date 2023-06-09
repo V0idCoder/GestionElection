@@ -14,9 +14,11 @@
         
        
         <Ribbon>
-            <RibbonTab Header="General"/>
+            <RibbonTab Header="General">
+                <RibbonButton SmallImageSource="images\add.png" Height="112" Width="118"></RibbonButton>
+            </RibbonTab>
             <RibbonTab Header="Listes/candidats"/>
-            <RibbonTab Header="Dépuillement"/>
+            <RibbonTab Header=""/>
         </Ribbon>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -24,8 +26,8 @@
                 <ColumnDefinition Width="5" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <TextBlock FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Left side</TextBlock>
-        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+            <TextBlock FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Text="west side"/>
+            <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
         <TextBlock Grid.Column="2" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Right side</TextBlock>
         </Grid>
     </Grid>
