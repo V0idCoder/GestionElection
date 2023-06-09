@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElectionService.Model
+namespace ElectionLibrary
 {
     public class Liste
     {
@@ -14,9 +14,8 @@ namespace ElectionService.Model
         public string? Abreviation { get; set; }
         public int NbBulletinCompact { get; set; }
 
-        // Navigation Properties
-        public List<Bulletin> Bulletins {get; set; }
+        public List<Bulletin> Bulletins {get; set; } 
 
-        public List<Candidat> Candidats { get; set; }
+        public List<Candidat> Candidats { get; set;}
     }
 }

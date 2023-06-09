@@ -1,9 +1,10 @@
-﻿<Window x:Class="GestionElectionUI.MainWindow"
+﻿<Window x:Class="GestionElectionUI.MainWindow"   
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GestionElectionUI"
+        xmlns:library="clr-namespace:ElectionLibrary;assembly=ElectionLibrary"
         mc:Ignorable="d"
         Title="GestionElection" Height="450" Width="800">
     <Grid>
@@ -27,15 +28,27 @@
             
             <!--TreeView-->
             <Grid Margin="10">
-                <TreeView>
+                <TreeView SelectedItemChanged="TreeView_SelectedItemChanged" >
+                    <TreeView.Resources>
+                        <HierarchicalDataTemplate DataType="{x:Type library:Commune}" ItemsSource="{Binding Elections}">
+                            <TextBlock Text="{Binding Nom}"/>
+                        </HierarchicalDataTemplate>
+                        <HierarchicalDataTemplate DataType="{x:Type library:Election}" ItemsSource="{Binding Listes}">
+                            <TextBlock Text="{Binding Nom}"/>
+                        </HierarchicalDataTemplate>
+                        <HierarchicalDataTemplate DataType="{x:Type library:Liste}" ItemsSource="{Binding Candidats}">
+                            <TextBlock Text="{Binding Nom}"/>
+                        </HierarchicalDataTemplate>
+                        <DataTemplate DataType="{x:Type library:Candidat}">
+                            <TextBlock Text="{Binding Nom}"/>
+                        </DataTemplate>
+                    </TreeView.Resources>
                     <TreeViewItem Header="Election" >
                         <TreeViewItem Header="Commune" />
                         <TreeViewItem Header="Objet de l'élection"/>
                         <TreeViewItem Header="Nb de sièges" />
                         <TreeViewItem Header="Système" />
                         <TreeViewItem Header="Cumul" />
-
-                        <TreeViewItem Header="Level 2.3" />
                     </TreeViewItem>
                 </TreeView>
             </Grid>
