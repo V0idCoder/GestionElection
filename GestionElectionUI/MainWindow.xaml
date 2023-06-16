@@ -28,7 +28,7 @@
             
             <!--TreeView-->
             <Grid Margin="10">
-                <TreeView SelectedItemChanged="TreeView_SelectedItemChanged" >
+                <TreeView SelectedItemChanged="TreeView_SelectedItemChanged">
                     <TreeView.Resources>
                         <HierarchicalDataTemplate DataType="{x:Type library:Commune}" ItemsSource="{Binding Elections}">
                             <TextBlock Text="{Binding Nom}"/>
@@ -44,16 +44,14 @@
                         </DataTemplate>
                     </TreeView.Resources>
                     <TreeViewItem Header="Election" >
-                        <TreeViewItem Header="Commune" />
+                        <TreeViewItem Header="Commune"/>
                         <TreeViewItem Header="Objet de l'élection"/>
-                        <TreeViewItem Header="Nb de sièges" />
-                        <TreeViewItem Header="Système" />
-                        <TreeViewItem Header="Cumul" />
+                        <TreeViewItem Header="Nb de sièges"/> 
+                        <TreeViewItem Header="Système"/>
+                        <TreeViewItem Header="Cumul"/>
                     </TreeViewItem>
                 </TreeView>
             </Grid>
-            
-            
             <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
         <TextBlock Grid.Column="2" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Right side</TextBlock>
         </Grid>
