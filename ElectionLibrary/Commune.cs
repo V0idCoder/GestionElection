@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElectionService.Model
+namespace ElectionLibrary
 {
     public class Commune
     {
@@ -14,7 +14,6 @@ namespace ElectionService.Model
         public int Numero { get; set; }
         public string Canton { get; set; }
 
-        // Navigation Properties
         public List<Election> Elections { get; set; }
     }
 }

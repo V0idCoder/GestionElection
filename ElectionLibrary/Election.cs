@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElectionService.Model
+namespace ElectionLibrary
 
 {
     public class Election
@@ -20,12 +20,15 @@ namespace ElectionService.Model
 
         public int CommuneId { get; set; }
 
-        // Navigation Properties
         public Commune Commune { get; set; }
 
         public List<Liste> Listes { get; set; }
 
         public List<Bulletin> Bulletins { get; set; }
+
+
+
+        //Héritage de communeId ? --> 
 
 
     }

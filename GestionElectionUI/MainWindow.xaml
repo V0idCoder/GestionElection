@@ -1,9 +1,10 @@
-﻿<Window x:Class="GestionElectionUI.MainWindow"
+﻿<Window x:Class="GestionElectionUI.MainWindow"   
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GestionElectionUI"
+        xmlns:library="clr-namespace:ElectionLibrary;assembly=ElectionLibrary"
         mc:Ignorable="d"
         Title="GestionElection" Height="450" Width="800">
     <Grid>
@@ -15,7 +16,14 @@
        
         <Ribbon>
             <RibbonTab Header="General">
-                <RibbonButton SmallImageSource="images\add.png" Height="112" Width="118"></RibbonButton>
+                <RibbonGroup x:Name="Commune" Header="Commune">
+                    <RibbonButton SmallImageSource="Images\Create.png" Label="Add Commune"/>
+                    <RibbonButton SmallImageSource="Images\Delete.png" Label="Remove Commune"/>
+                </RibbonGroup>
+                <RibbonGroup x:Name="Election" Header="Election">
+                    <RibbonButton SmallImageSource="Images\Create.png" Label="Add Election"/>
+                    <RibbonButton SmallImageSource="Images\Delete.png" Label="Remove Election"/>
+                </RibbonGroup>
             </RibbonTab>
             <RibbonTab Header="Listes/candidats"/>
             <RibbonTab Header=""/>
@@ -26,7 +34,33 @@
                 <ColumnDefinition Width="5" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <TextBlock FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Text="west side"/>
+            
+            <!--TreeView-->
+            <Grid Margin="10">
+                <TreeView SelectedItemChanged="TreeView_SelectedItemChanged">
+                    <TreeView.Resources>
+                        <HierarchicalDataTemplate DataType="{x:Type library:Commune}" ItemsSource="{Binding Elections}">
+                            <TextBlock Text="{Binding Nom}"/>
+                        </HierarchicalDataTemplate>
+                        <HierarchicalDataTemplate DataType="{x:Type library:Election}" ItemsSource="{Binding Listes}">
+                            <TextBlock Text="{Binding Nom}"/>
+                        </HierarchicalDataTemplate>
+                        <HierarchicalDataTemplate DataType="{x:Type library:Liste}" ItemsSource="{Binding Candidats}">
+                            <TextBlock Text="{Binding Nom}"/>
+                        </HierarchicalDataTemplate>
+                        <DataTemplate DataType="{x:Type library:Candidat}">
+                            <TextBlock Text="{Binding Nom}"/>
+                        </DataTemplate>
+                    </TreeView.Resources>
+                    <TreeViewItem Header="Election" >
+                        <TreeViewItem Header="Commune"/>
+                        <TreeViewItem Header="Objet de l'élection"/>
+                        <TreeViewItem Header="Nb de sièges"/> 
+                        <TreeViewItem Header="Système"/>
+                        <TreeViewItem Header="Cumul"/>
+                    </TreeViewItem>
+                </TreeView>
+            </Grid>
             <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
         <TextBlock Grid.Column="2" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Right side</TextBlock>
         </Grid>
