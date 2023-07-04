@@ -12,35 +12,54 @@
             <RowDefinition Height="auto"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        
+
        
         <Ribbon>
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu KeyTip="ESC" x:Name="RibbonMenu">
+                    <RibbonApplicationMenuItem x:Name="SaveButton" Header="Save" ImageSource="Images\Save.png" />
+                    <RibbonApplicationMenuItem x:Name="ExitButton" Header="Exit" ImageSource="Images\Exit.png" Click="ExitButton_Click" />
+                </RibbonApplicationMenu>
+            </Ribbon.ApplicationMenu>
             <RibbonTab Header="General">
                 <RibbonGroup x:Name="Commune" Header="Commune">
                     <RibbonButton SmallImageSource="Images\Create.png" Label="Add Commune"/>
                     <RibbonButton SmallImageSource="Images\Delete.png" Label="Remove Commune"/>
+                    <RibbonButton SmallImageSource="Images\Modify.png" Label="Modify Commune"/>
                 </RibbonGroup>
                 <RibbonGroup x:Name="Election" Header="Election">
                     <RibbonButton SmallImageSource="Images\Create.png" Label="Add Election"/>
                     <RibbonButton SmallImageSource="Images\Delete.png" Label="Remove Election"/>
+                    <RibbonButton SmallImageSource="Images\Modify.png" Label="Modify Election"/>
                 </RibbonGroup>
             </RibbonTab>
-            <RibbonTab Header="Listes/candidats"/>
-            <RibbonTab Header=""/>
+            <RibbonTab Header="Listes/candidats">
+                <RibbonGroup x:Name="Listes" Header="Listes">
+                    <RibbonButton SmallImageSource="Images\Create.png" Label="Add Listes"/>
+                    <RibbonButton SmallImageSource="Images\Delete.png" Label="Remove Listes"/>
+                    <RibbonButton SmallImageSource="Images\Modify.png" Label="Modify Listes"/>
+                </RibbonGroup>
+                <RibbonGroup x:Name="Candidats" Header="Candidats">
+                    <RibbonButton SmallImageSource="Images\Create.png" Label="Add Candidats"/>
+                    <RibbonButton SmallImageSource="Images\Delete.png" Label="Remove Candidats"/>
+                    <RibbonButton SmallImageSource="Images\Modify.png" Label="Modify Candidats"/>
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="Depouillement"/>
         </Ribbon>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="5" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
             </Grid.ColumnDefinitions>
             
             <!--TreeView-->
             <Grid Margin="10">
-                <TreeView SelectedItemChanged="TreeView_SelectedItemChanged">
+                <TreeView x:Name="MainTreeView" SelectedItemChanged="TreeView_SelectedItemChanged">
                     <TreeView.Resources>
                         <HierarchicalDataTemplate DataType="{x:Type library:Commune}" ItemsSource="{Binding Elections}">
-                            <TextBlock Text="{Binding Nom}"/>
+                                <TextBlock Text="{Binding Nom}"/>
                         </HierarchicalDataTemplate>
                         <HierarchicalDataTemplate DataType="{x:Type library:Election}" ItemsSource="{Binding Listes}">
                             <TextBlock Text="{Binding Nom}"/>
@@ -52,17 +71,17 @@
                             <TextBlock Text="{Binding Nom}"/>
                         </DataTemplate>
                     </TreeView.Resources>
-                    <TreeViewItem Header="Election" >
-                        <TreeViewItem Header="Commune"/>
+                    <!--<TreeViewItem Header="Election" x:Name="ElectionItem">
+                        <TreeViewItem Header="Commune" x:Name="CommuneItem"/>
                         <TreeViewItem Header="Objet de l'élection"/>
                         <TreeViewItem Header="Nb de sièges"/> 
                         <TreeViewItem Header="Système"/>
                         <TreeViewItem Header="Cumul"/>
-                    </TreeViewItem>
+                    </TreeViewItem>-->
                 </TreeView>
             </Grid>
             <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
-        <TextBlock Grid.Column="2" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Right side</TextBlock>
+            <ScrollViewer x:Name="ScrollPanel" Grid.Column="2"/>
         </Grid>
     </Grid>
 </Window>
